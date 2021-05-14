@@ -1,2 +1,3 @@
 # active-matter-project
-Morten and Mikkel's project on active matter
+
+This is Morten and Mikkel's repository for a project on Active Matter which is made in collaboration with Amin Doostmohammadi from NBI
