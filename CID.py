@@ -5,7 +5,7 @@ from statistics import mean
 from pathlib import Path
 import numpy as np
 
-class InterlacedTime():
+class InterlacedTime(): # Hvad betyder interlaced time helt præcist?
 
     def __init__(self, order, shuffles = 2):
         self.dim = 3
@@ -14,7 +14,7 @@ class InterlacedTime():
         self.hilbert_curves = hilbert_3D_curves(order)
 
 
-    def isotropicQ(self, data):
+    def isotropicQ(self, data): # Hvad er isotropic Q?
 
         if type(data) is not np.ndarray:
             raise TypeError('Data must be a numpy array, got {}.'.format(type(data)))
@@ -45,8 +45,8 @@ class InterlacedTime():
             hilbert_scan[i] = np.fromiter((cube[point] for point in hilbert_curve), dtype=int)
         hilbert_scan = hilbert_scan.flatten()
 
-        def list2string(mylist):
-            return ''.join(map(str, mylist.tolist()))
+        def list2string(mylist): # Denne tager en array ind, ikke en list
+            return ''.join(map(str, mylist.tolist())) 
 
         def cid(hscan):
             C = lz77(list2string(hscan))
@@ -79,7 +79,7 @@ if __name__ == '__main__':
     Q = []
     for path in sorted(pathlist):
         data = import_data(path)
-        a, b = it.isotropic_q_order(data)
+        a, b = it.isotropic_q_order(data) # Fejl her?
         cid.append(a)
         Q.append(b)
     np.save('outputs/shuffle'+str(it.num_shuffles), [temps, cid, Q])
